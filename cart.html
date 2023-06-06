@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cart</title>
+  <style>
+    /* CSS styles for the cart page */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #2874f0;
+      padding: 10px;
+      color: #fff;
+      text-align: center;
+    }
+
+    .container {
+      margin: 20px;
+    }
+
+    .cart-item {
+      display: inline-block;
+      margin: 10px;
+      width: 200px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      text-align: center;
+    }
+
+    .cart-item img {
+      max-width: 150px;
+      max-height: 150px;
+    }
+
+    .cart-item h3 {
+      margin: 10px 0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Cart</h1>
+  </header>
+
+  <div class="container" id="cart-items-container">
+    <!-- Cart items will be dynamically added here -->
+  </div>
+
+  <script>
+    // Fetch cart items from the server
+    fetch('/api/cart')
+      .then(response => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error('An error occurred while fetching cart items.');
+        }
+      })
+      .then(cartItems => {
+        // Generate HTML for each cart item and append it to the container
+        const cartItemsContainer = document.getElementById('cart-items-container');
+        cartItems.forEach(cartItem => {
+          const cartItemDiv = document.createElement('div');
+          cartItemDiv.className = 'cart-item';
+
+          const img = document.createElement('img');
+          img.src = cartItem.image;
+          img.alt = cartItem.name;
+          cartItemDiv.appendChild(img);
+
+          const h3 = document.createElement('h3');
+          h3.textContent = cartItem.name;
+          cartItemDiv.appendChild(h3);
+
+          cartItemsContainer.appendChild(cartItemDiv);
+        });
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  </script>
+</body>
+</html>

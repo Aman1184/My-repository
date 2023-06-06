@@ -1,0 +1,61 @@
+body {
+    font-family: fantasy;
+    background-image: url('https://c0.wallpaperflare.com/preview/447/552/983/ecommerce-online-shop-euro.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.menu{
+    width: 400px;
+    float: left;
+    height: 70px;
+}
+ul{
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+ul li{
+    list-style: none;
+    margin-left: 50px;
+    margin-top: 0px;
+    font-size: 20px;
+}
+ul li a{
+    text-decoration: none;
+    color: #0a0a0a;
+    font-family: Arial;
+    font-weight: bold;
+    transition: 0.4s ease-in-out;
+}
+ul li a:hover{
+    color: #ff8400;
+}
+  
+  h1 {
+    text-align: center;
+    margin-top: 10px;
+    margin-right: 10px;
+  }
+  
+  form {
+    width: 400px;
+    margin: 0 auto;
+  }
+  
+  label {
+    display: inline-block;
+    width: 100px;
+  }
+  
+  input[type="text"],
+  select {
+    width: 200px;
+  }
+  
+  input[type="submit"] {
+    display: block;
+    margin: 10px auto;
+  }
+  

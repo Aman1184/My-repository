@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Device Service Page</title>
+  <link rel="stylesheet" type="text/css" href="sell.css">
+</head>
+<body>
+  <div class="main">
+    <div class="navbar">
+
+        <div class="menu">
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="services.html">SERVICES</a></li>
+                <li><a href="map.html">DROP~IN</a></li>
+                <li><a href="payment.html">PAY</a></li>
+                <!-- <li><a href="#">GALLERY</a></li> -->
+            </ul>
+        </div>
+
+    </div>
+  <h1>Device Service Page</h1>
+  
+  <form id="serviceForm" enctype="multipart/form-data">
+    <label for="device">Device:</label>
+    <select id="device" name="device">
+      <option value="phone">Phone</option>
+      <option value="tablet">Tablet</option>
+      <option value="laptop">Laptop</option>
+    </select><br><br>
+    
+    <label for="model">Model:</label>
+    <input type="text" id="model" name="model" required><br><br>
+    
+    <label for="condition">Condition:</label>
+    <select id="condition" name="condition">
+      <option value="new">New</option>
+      <option value="used">Used</option>
+      <option value="broken">Broken</option>
+    </select><br><br>
+    
+    <label for="photos">Upload Photos:</label>
+    <input type="file" id="photos" name="photos[]" multiple><br><br>
+    
+    <input type="submit" value="Submit">
+  </form>
+  
+  <div id="result"></div>
+  
+  <script src="sell.js"></script>
+</body>
+</html>

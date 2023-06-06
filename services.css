@@ -1,0 +1,31 @@
+body {
+    font-family: fantasy;
+    background-image: url('https://c0.wallpaperflare.com/preview/447/552/983/ecommerce-online-shop-euro.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+  
+  h1 {
+    text-align: center;
+  }
+  
+  form {
+    width: 400px;
+    margin: 0 auto;
+  }
+  
+  label {
+    display: inline-block;
+    width: 100px;
+  }
+  
+  input[type="text"],
+  select {
+    width: 200px;
+  }
+  
+  input[type="submit"] {
+    display: block;
+    margin: 10px auto;
+  }
+  

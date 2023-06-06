@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Product Store</title>
+  <style>
+      h1 {text-align: center;}
+    .product {
+      display: inline-block;
+      margin: 20px;
+      text-align: center;
+    }
+    .product img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      margin-bottom: 10px;
+    }
+    .product-name {
+      font-weight: bold;
+    }
+    .product-price {
+      margin-top: 10px;
+    }
+    #cart-items {
+      font-weight: bold;
+    }
+    #notification {
+      display: none;
+      background-color: #f1f1f1;
+      color: #333;
+      text-align: center;
+      padding: 10px;
+      margin-top: 20px;
+    }
+    .delete-btn {
+      background-color: #f44336;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+  </style>
+    <script>
+    var cart = [];
+    
+    function addToCart() {
+      cartItems++;
+      document.getElementById('cart-items').innerText = cartItems;
+      showNotification('Congrats! An item is added to your cart.');
+      var productName = this.parentNode.querySelector('.product-name').innerText;
+      cart.push(productName);
+    }
+    
+    function removeFromCart() {
+      if (cartItems > 0) {
+        cartItems--;
+        document.getElementById('cart-items').innerText = cartItems;
+        showNotification('Item is removed from your cart.');
+        var productName = this.parentNode.querySelector('.product-name').innerText;
+        var index = cart.indexOf(productName);
+        if (index > -1) {
+          cart.splice(index, 1);
+        }
+      }
+    }
+    
+    function showNotification(message) {
+      var notification = document.getElementById('notification');
+      notification.innerText = message;
+      notification.style.display = 'block';
+      setTimeout(function() {
+        notification.style.display = 'none';
+      }, 3000); // Hide the notification after 3 seconds
+    }
+    
+    function showCart() {
+      var cartItemsList = document.getElementById('cart-items-list');
+      cartItemsList.innerHTML = '';
+      
+      for (var i = 0; i < cart.length; i++) {
+        var li = document.createElement('li');
+        li.innerText = cart[i];
+        cartItemsList.appendChild(li);
+      }
+      
+      document.getElementById('cart').style.display = 'block';
+    }
+  </script>
+  <script>
+    var cartItems = 0;
+    
+    function addToCart() {
+      cartItems++;
+      document.getElementById('cart-items').innerText = cartItems;
+      showNotification('Congrats! An item is added to your cart.');
+    }
+    
+    function removeFromCart() {
+      if (cartItems > 0) {
+        cartItems--;
+        document.getElementById('cart-items').innerText = cartItems;
+        showNotification('Item is removed from your cart.');
+      }
+    }
+    
+    function showNotification(message) {
+      var notification = document.getElementById('notification');
+      notification.innerText = message;
+      notification.style.display = 'block';
+      setTimeout(function() {
+        notification.style.display = 'none';
+      }, 3000); // Hide the notification after 3 seconds
+    }
+  </script>
+</head>
+<body>    
+ <h1>Welcome to our Product Store</h1>
+ <p>Items in Cart: <span id="cart-items">0</span></p>
+  <div id="notification"></div>
+  <div class="product">
+    <img src="watch.jpeg" alt="Product 1">
+    <h2 class="product-name">Product 1</h2>
+    <p class="product-price">$10</p>
+    <button onclick="addToCart()">Add to Cart</button>
+    <button class="delete-btn" onclick="removeFromCart()">Remove from Cart</button>
+    <div class="notification"></div>
+  </div>
+  
+  <div class="product">
+    <img src="camera.jpg" alt="Product 2">
+    <h2 class="product-name">Product 2</h2>
+    <p class="product-price">$20</p>
+    <button onclick="addToCart()">Add to Cart</button>
+    <button class="delete-btn" onclick="removeFromCart()">Remove from Cart</button>
+    <div class="notification"></div>
+  </div>
+  
+  <div class="product">
+    <img src="homepod-select-midnight-202210.png" alt="Product 3">
+    <h2 class="product-name">Product 3</h2>
+    <p class="product-price">$30</p>
+    <button onclick="addToCart()">Add to Cart</button>
+    <button class="delete-btn" onclick="removeFromCart()">Remove from Cart</button>
+    <div class="notification"></div>
+  </div>
+  <div class="product">
+    <img src="trimmer.jpg" alt="Product 4">
+    <h2 class="product-name">Product 4</h2>
+    <p class="product-price">$40</p>
+    <button onclick="addToCart()">Add to Cart</button>
+    <button class="delete-btn" onclick="removeFromCart()">Remove from Cart</button>
+    <div class="notification"></div>
+  </div>
+  <div class="product">
+    <img src="buds.jpg" alt="Product 5">
+    <h2 class="product-name">Product 5</h2>
+    <p class="product-price">$50</p>
+    <button onclick="addToCart()">Add to Cart</button>
+    <button class="delete-btn" onclick="removeFromCart()">Remove from Cart</button>
+    <div class="notification"></div>
+  </div>
+  <div class="product">
+    <img src="8904231004603_1.jpg" alt="Product 6">
+    <h2 class="product-name">Product 6</h2>
+    <p class="product-price">$60</p>
+    <button onclick="addToCart()">Add to Cart</button>
+    <button class="delete-btn" onclick="removeFromCart()">Remove from Cart</button>
+    <div class="notification"></div>
+  </div>
+  <div class="product">
+    <img src="Logitech-slim-folio-7th-gen-01_2048x2048.jpg.webp" alt="Product 7">
+    <h2 class="product-name">Product 7</h2>
+    <p class="product-price">$60</p>
+    <button onclick="addToCart()">Add to Cart</button>
+    <button class="delete-btn" onclick="removeFromCart()">Remove from Cart</button>
+    <div class="notification"></div>
+  </div>
+  <div class="product">
+    <img src="410KqOI+IeL.SX679.jpg" alt="Product 8">
+    <h2 class="product-name">Product 8</h2>
+    <p class="product-price">$60</p>
+    <button onclick="addToCart()">Add to Cart</button>
+    <button class="delete-btn" onclick="removeFromCart()">Remove from Cart</button>
+    <div class="notification"></div>
+  </div>
+  <div class="product">
+    <img src="71iAQMHfjuL.AC_UL800_QL65.jpg" alt="Product 9">
+    <h2 class="product-name">Product 9</h2>
+    <p class="product-price">$60</p>
+    <button onclick="addToCart()">Add to Cart</button>
+    <button class="delete-btn" onclick="removeFromCart()">Remove from Cart</button>
+    <div class="notification"></div>
+  </div>
+  <div class="product">
+    <img src="41llkQ5N+PS.AC_UL800_QL65.jpg" alt="Product 10">
+    <h2 class="product-name">Product 10</h2>
+    <p class="product-price">$60</p>
+    <button onclick="addToCart()">Add to Cart</button>
+    <button class="delete-btn" onclick="removeFromCart()">Remove from Cart</button>
+    <div class="notification"></div>
+  </div>
+  <div class="product">
+    <img src="51Cg2sro90L.AC_UL800_QL65.jpg" alt="Product 11">
+    <h2 class="product-name">Product 11</h2>
+    <p class="product-price">$60</p>
+    <button onclick="addToCart()">Add to Cart</button>
+    <button class="delete-btn" onclick="removeFromCart()">Remove from Cart</button>
+    <div class="notification"></div>
+  </div>
+  <div class="product">
+    <img src="51hA1mvqarL.AC_UL800_QL65.jpg" alt="Product 12">
+    <h2 class="product-name">Product 12</h2>
+    <p class="product-price">$60</p>
+    <button onclick="addToCart()">Add to Cart</button>
+    <button class="delete-btn" onclick="removeFromCart()">Remove from Cart</button>
+    <div class="notification"></div>
+  </div>
+  <div class="product">
+    <img src="box.jpg" alt="Product 13">
+    <h2 class="product-name">Product 13</h2>
+    <p class="product-price">$60</p>
+    <button onclick="addToCart()">Add to Cart</button>
+    <button class="delete-btn" onclick="removeFromCart()">Remove from Cart</button>
+    <div class="notification"></div>
+  </div>
+  <div class="product">
+    <img src="51MU-LDNBvL.AC_UL800_QL65.jpg" alt="Product 14">
+    <h2 class="product-name">Product 14</h2>
+    <p class="product-price">$60</p>
+    <button onclick="addToCart()">Add to Cart</button>
+    <button class="delete-btn" onclick="removeFromCart()">Remove from Cart</button>
+    <div class="notification"></div>
+  </div>
+  <div class="product">
+    <img src="61Pg1H7U15L.AC_UL800_QL65.jpg" alt="Product 15">
+    <h2 class="product-name">Product 15</h2>
+    <p class="product-price">$60</p>
+    <button onclick="addToCart()">Add to Cart</button>
+    <button class="delete-btn" onclick="removeFromCart()">Remove from Cart</button>
+    <div class="notification"></div>
+  </div>
+  <div class="product">
+    <img src="61rvcsMoRYL.AC_UL800_QL65.jpg" alt="Product 16">
+    <h2 class="product-name">Product 16</h2>
+    <p class="product-price">$60</p>
+    <button onclick="addToCart()">Add to Cart</button>
+    <button class="delete-btn" onclick="removeFromCart()">Remove from Cart</button>
+    <div class="notification"></div>
+  </div>
+  <div class="product">
+    <img src="71rw2sa7CCL.AC_UL800_QL65.jpg" alt="Product 17">
+    <h2 class="product-name">Product 17</h2>
+    <p class="product-price">$60</p>
+    <button onclick="addToCart()">Add to Cart</button>
+    <button class="delete-btn" onclick="removeFromCart()">Remove from Cart</button>
+    <div class="notification"></div>
+  </div>
+  <div class="product">
+    <img src="81ome4arK0L.AC_UL800_QL65.jpg" alt="Product 18">
+    <h2 class="product-name">Product 18</h2>
+    <p class="product-price">$60</p>
+    <button onclick="addToCart()">Add to Cart</button>
+    <button class="delete-btn" onclick="removeFromCart()">Remove from Cart</button>
+    <div class="notification"></div>
+  </div>
+  <div class="product">
+    <img src="815zvcn8AIL.AC_UL800_QL65.jpg" alt="Product 19">
+    <h2 class="product-name">Product 19</h2>
+    <p class="product-price">$60</p>
+    <button onclick="addToCart()">Add to Cart</button>
+    <button class="delete-btn" onclick="removeFromCart()">Remove from Cart</button>
+    <div class="notification"></div>
+  </div>
+  <div class="product">
+    <img src="41ArVgmpKSS.AC_UL800_QL65.jpg" alt="Product 20">
+    <h2 class="product-name">Product 20</h2>
+    <p class="product-price">$60</p>
+    <button onclick="addToCart()">Add to Cart</button>
+    <button class="delete-btn" onclick="removeFromCart()">Remove from Cart</button>
+    <div class="notification"></div>
+  </div>
+  <div class="product">
+    <img src="61lfthIflfL.AC_UY436_QL65.jpg" alt="Product 21">
+    <h2 class="product-name">Product 21</h2>
+    <p class="product-price">$60</p>
+    <button onclick="addToCart()">Add to Cart</button>
+    <button class="delete-btn" onclick="removeFromCart()">Remove from Cart</button>
+    <div class="notification"></div>
+  </div>
+  <div class="product">
+    <img src="71Zf9uUp+GL.AC_UL800_QL65.jpg" alt="Product 22">
+    <h2 class="product-name">Product 22</h2>
+    <p class="product-price">$60</p>
+    <button onclick="addToCart()">Add to Cart</button>
+    <button class="delete-btn" onclick="removeFromCart()">Remove from Cart</button>
+    <div class="notification"></div>
+  </div>
+  <div class="product">
+    <img src="61N+SGNs6VL.AC_UL800_QL65.jpg" alt="Product 23">
+    <h2 class="product-name">Product 23</h2>
+    <p class="product-price">$60</p>
+    <button onclick="addToCart()">Add to Cart</button>
+    <button class="delete-btn" onclick="removeFromCart()">Remove from Cart</button>
+    <div class="notification"></div>
+  </div>
+  <div class="product">
+    <img src="61ofVvpW2ZL.AC_UL800_QL65.jpg" alt="Product 24">
+    <h2 class="product-name">Product 24</h2>
+    <p class="product-price">$60</p>
+    <button onclick="addToCart()">Add to Cart</button>
+    <button class="delete-btn" onclick="removeFromCart()">Remove from Cart</button>
+    <div class="notification"></div>
+  </div>
+  <div class="product">
+    <img src="61LFdDN05XL.AC_UL800_QL65.jpg" alt="Product 25">
+    <h2 class="product-name">Product 25</h2>
+    <p class="product-price">$60</p>
+    <button onclick="addToCart()">Add to Cart</button>
+    <button class="delete-btn" onclick="removeFromCart()">Remove from Cart</button>
+    <div class="notification"></div>
+  </div>
+    <script>
+    var cart = [];
+    
+    function addToCart() {
+      cartItems++;
+      document.getElementById('cart-items').innerText = cartItems;
+      showNotification('Congrats! An item is added to your cart.');
+      var productName = this.parentNode.querySelector('.product-name').innerText;
+      cart.push(productName);
+    }
+    
+    function removeFromCart() {
+      if (cartItems > 0) {
+        cartItems--;
+        document.getElementById('cart-items').innerText = cartItems;
+        showNotification('Item is removed from your cart.');
+        var productName = this.parentNode.querySelector('.product-name').innerText;
+        var index = cart.indexOf(productName);
+        if (index > -1) {
+          cart.splice(index, 1);
+        }
+      }
+    }
+    
+    function showNotification(message) {
+      var notification = document.getElementById('notification');
+      notification.innerText = message;
+      notification.style.display = 'block';
+      setTimeout(function() {
+        notification.style.display = 'none';
+      }, 3000); // Hide the notification after 3 seconds
+    }
+    
+    function showCart() {
+      var cartItemsList = document.getElementById('cart-items-list');
+      cartItemsList.innerHTML = '';
+      
+      for (var i = 0; i < cart.length; i++) {
+        var li = document.createElement('li');
+        li.innerText = cart[i];
+        cartItemsList.appendChild(li);
+      }
+      
+      document.getElementById('cart').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
